@@ -494,7 +494,8 @@ export function getImageUrl(rule) {
 		original = matches[1];
 		normalized = original
 			.replace(/['"]/gi, '') // replace all quotes
-			.replace(/\?.*$/gi, ''); // replace query params
+			.replace(/\?.*$/gi, '') // replace query params
+			.replace(/^~/, '/'); // webpack ~ support
 	}
 
 	return [original, normalized];
